@@ -11,7 +11,7 @@ while($row=mysqli_fetch_assoc($cat_res)){
 
 $result = mysqli_query($con, "SELECT * FROM product WHERE 1 LIMIT 4");
 
-// $row = mysqli_fetch_assoc($result);
+
 if(mysqli_num_rows($result) == 0){
     header("Location: index.php");
 }
