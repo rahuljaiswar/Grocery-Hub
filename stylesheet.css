@@ -1,0 +1,308 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.carousel-item{
+    width: 100%;
+    height: 80vh;
+}
+.carousel-caption h5{
+    font-size: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 25px;
+    color:black;
+}
+
+.carousel-caption p{
+    width: 75%;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.9;
+    color:black;
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item{
+    border: 2px solid black;
+    margin: 12px;
+    width: 275px;
+    height: 300px;
+    
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    align-items: center;
+}
+h3{
+    text-align: center;
+}
+a{
+   text-decoration: none;
+   /* color: yellow; */
+}
+h1{
+    text-align: center;
+}
+.section-p1{
+    padding: 40px 80px;
+}
+#title{  
+    background-color: green;
+    color: yellow;
+}
+
+#title ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#title ul li{
+    list-style: none;
+}
+.icon{
+    padding: 2vh;
+    font-size: 2rem;
+}
+/* .h{
+    padding: 5px;
+} */
+.section-title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+.shop{
+    margin-top: 2rem;
+
+}
+.shop-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px, auto));
+    gap: 1.5rem;
+}
+.product-box{
+    position: relative;
+     
+}
+.product-box:hover{
+    padding: 10px;
+    border: 1px solid var(--text-color);
+    transition: 0.4s;
+}
+.product-img{
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+
+}
+.product-title{
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+.price{
+    font-weight: 500;
+}
+.add-cart{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: var(--text-color);
+    color: var(--bg-color);
+    padding: 10px;
+    cursor: pointer;
+
+}
+.add-cart:hover{
+    background: hsl(249, 32%, 17%);
+}
+#product1{
+    text-align: center;
+
+}
+#product1 .pro-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#product1 .pro{
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid darkgreen;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.2);
+    margin: 15px 0;
+    transition: 0.2s ease;
+    position: relative;
+}
+#product1 .pro:hover{
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.6);
+}
+#product1 .pro img{
+    width: 100%;
+    border-radius: 20px;
+}
+#product1 .pro .des{
+    text-align: start;
+    padding: 10px 0;
+}
+#product1 .pro .des span{
+    color: grey;
+    font-size: 12px;
+}
+#product1 .pro h4{
+    padding-top: 7px;
+    font-size: 15px;
+    font-weight: 700;
+    color: green;
+    
+}
+
+svg{
+    width:30px;
+    height:30px;
+    padding: 5px;
+}
+#product1 .pro svg{
+    
+    background-color: beige;
+    font-weight: 500;
+    color: green;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    
+}
+.section{
+    margin: 40px 0;
+}
+#banner2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(images/gban.png);
+    width: 100%;
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+
+}
+#banner2 h4{
+    color: #000;
+    font-weight: 700;
+    background-color: white;
+}
+#banner2 h3{
+    color: #000;
+    font-weight: 700;
+    background-color: white;
+}
+
+.pagination > li > a
+{
+    background-color: white;
+    color: green;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover
+{
+    color: #5a5a5a;
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active > a
+{
+    color: white;
+    background-color: green !Important;
+    border: solid 1px green !Important;
+}
+
+.pagination > .active > a:hover
+{
+    background-color: green!Important;
+    border: solid 1px green;
+
+}
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #c4f024, #35db43, #3baa07, #144b09);
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #c4f024, #35db43, #3baa07, #144b09);
+  }
+  
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh !important;
+    }
+  }
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+  }
+  #login1{
+      text-decoration: none;
+  }
+
+.section{
+    width: 100%;
+}
+.section .contain1{
+    width: 80%;
+    display: block;
+    margin: 0px auto;
+    padding: 50px 0px;
+}
+.content{
+    float: left;
+    width: 55%;
+}
+.image-section{
+    float: right;
+    width: 40%;
+}
+.image-section img{
+    width: 100%;
+    height: auto;
+
+} 
+.content .article p{
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.content .article .button a{
+    text-decoration: none;
+    padding: 8px 25px;
+    background-color: #3baa07;
+    border-radius: 40px;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+
+}
