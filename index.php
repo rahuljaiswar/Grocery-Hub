@@ -164,15 +164,15 @@ if(mysqli_num_rows($result) == 0){
           <?php
               while($row=mysqli_fetch_assoc($result)){
           ?>
-          <div class="pro">
+          <div class="pro" >
               <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row["image"]; ?>" alt="">
-              <div class="des">
+              <div class="des" >
                   <span><?php echo $row["name"]; ?></span>
                   <h4><?php echo $row["price"]; ?>/kg</h4>
                   <input type="number" name="" id="" min="1" max="100" value="1" style="width: 10rem;">
                   <span style="color: black; font-style: bold; font-weight: 700;">/kg</span>
 
-                  <button onclick="addToCart('<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']; ?>', '<?php echo $row['name']; ?>','<?php echo $row['price']; ?>')" class="ms-3" >
+                  <button onclick="add_to_cart('<?php echo $row['name']; ?>','<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']; ?>','<?php echo $row['price']; ?>')" class="ms-3" >
                   <img src="./images/cart.svg" alt="">
                   </button>
 

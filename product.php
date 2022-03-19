@@ -137,7 +137,7 @@ if(mysqli_num_rows($result) == 0){
                     <span style="color: black; font-style: bold; font-weight: 700;">/kg</span>
 
                 </div>
-                <button onclick="addToCart('<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']; ?>', '<?php echo $row['name']; ?>','<?php echo $row['price']; ?>')" class="ms-2" >
+                <button onclick="addToCart('<?php echo $row['name']; ?>','<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']; ?>','<?php echo $row['price']; ?>')" class="ms-2" >
                   <img src="./images/cart.svg" alt="">
                   </button>
 
