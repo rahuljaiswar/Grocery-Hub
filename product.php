@@ -43,72 +43,8 @@ if(mysqli_num_rows($result) == 0){
 </head>
 
 <body>
-
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#44ee4d;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.php">GroceryHub</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Deals</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Category
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?php
-										foreach($cat_arr as $list){
-											?>
-											<li><a href="product.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
-											<?php
-										}
-									?>
-              <!-- <li><a class="dropdown-item" href="vegetables.html">Vegetables</a></li>
-              <li><a class="dropdown-item" href="fruits.html">Fruits</a></li>
-              <li><a class="dropdown-item" href="dairy.html">Dairy&Bread</a></li>
-              <li><a class="dropdown-item" href="snacks.html">Snacks</a></li>
-              <li><a class="dropdown-item" href="staples.html">Staples</a></li> -->
-            </ul>
-          </li>
-          <?php
-            if(!isset($_SESSION['id'])){
-              echo '<li class="nav-item">
-              <a class="nav-link active" href="login.php">Login</a>
-              </li>';
-            }else{
-              echo '<li class="nav-item">
-              <a class="nav-link active" href="logout.php">Logout</a>
-              </li>';
-            }
-         ?>
-          <li class="nav-item">
-            <a class="nav-link active" href="cart.php"><img src="images/cart.svg" alt=""></i></a>
-          </li>
-
-                </ul>
-
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-
-            </div>
-        </div>
-    </nav>
-
+<?php include('header.php'); ?>
+    
     <!-- <div class="container">
         <img src="images/1.jpg" alt="" class="corona">
     </div> -->
@@ -129,17 +65,19 @@ if(mysqli_num_rows($result) == 0){
                 while($row=mysqli_fetch_assoc($result)){
             ?>
             <div class="pro">
+            <form action="manage_cart.php" method="POST">
                 <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row["image"]; ?>" alt="">
                 <div class="des">
                     <span><?php echo $row["name"]; ?></span>
                     <h4><?php echo $row["price"]; ?>/kg</h4>
                     <input type="number" name="" id="" min="1" max="100" value="1" style="width: 10rem;">
                     <span style="color: black; font-style: bold; font-weight: 700;">/kg</span>
-
+                    <button type="submit" name="add_to_cart" class="btn btn-primary">Add to Cart</button>
+                    <input type="hidden" name="item_name" value="<?php echo $row["name"]; ?>">
+                    <input type="hidden" name="price" value="<?php echo $row["price"]; ?>">
+                </form>
                 </div>
-                <button onclick="addToCart('<?php echo $row['name']; ?>','<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']; ?>','<?php echo $row['price']; ?>')" class="ms-2" >
-                  <img src="./images/cart.svg" alt="">
-                  </button>
+                
 
             </div>
 

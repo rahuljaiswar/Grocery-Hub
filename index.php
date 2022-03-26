@@ -1,7 +1,8 @@
 <?php 
 require('connection.inc.php');
 require('functions.inc.php');
-
+// session_start();
+// session_destroy();
 $cat_res=mysqli_query($con,"select * from categories where status=1 order by categories asc");
 $cat_arr=array();
 
@@ -10,7 +11,6 @@ while($row=mysqli_fetch_assoc($cat_res)){
 }
 
 $result = mysqli_query($con, "SELECT * FROM product WHERE 1 LIMIT 4");
-
 
 if(mysqli_num_rows($result) == 0){
     header("Location: index.php");
@@ -35,76 +35,11 @@ if(mysqli_num_rows($result) == 0){
   <script text="text/javascript" src="js/jquery-3.6.0.js"></script>
 
 
-  <title>grocery</title>
+  <title>Grocery Hub</title>
 </head>
 
 <body>
-  <!-- navbar start here -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#44ee4d;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">GroceryHub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="#contact">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#about">About Us</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Category
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?php
-										foreach($cat_arr as $list){
-											?>
-											<li><a href="product.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
-											<?php
-										}
-									?>
-              <!-- <li><a class="dropdown-item" href="vegetables.html">Vegetables</a></li>
-              <li><a class="dropdown-item" href="fruits.html">Fruits</a></li>
-              <li><a class="dropdown-item" href="dairy.html">Dairy&Bread</a></li>
-              <li><a class="dropdown-item" href="snacks.html">Snacks</a></li>
-              <li><a class="dropdown-item" href="staples.html">Staples</a></li> -->
-            </ul>
-          </li>
-          <?php
-            if(!isset($_SESSION['id'])){
-              echo '<li class="nav-item">
-              <a class="nav-link active" href="login.php">Login</a>
-              </li>';
-            }else{
-              echo '<li class="nav-item">
-              <a class="nav-link active" href="logout.php">Logout</a>
-              </li>';
-            }
-         ?>
-          <li class="nav-item">
-            <a class="nav-link active" href="cart.php"><img src="images/cart.svg" alt=""></i></a>
-          </li>
-
-          
-        </ul>
-        
-
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
-  
+  <?php include("header.php"); ?>
   <!-- navbar ends here -->
   <!-- <marquee behavior="alternate" direction="left">GroceryHub GroceryHub GroceryHub GroceryHub GroceryHub GroceryHub
   </marquee> -->
@@ -167,15 +102,15 @@ if(mysqli_num_rows($result) == 0){
           <div class="pro" >
               <img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row["image"]; ?>" alt="">
               <div class="des" >
+              <form action="manage_cart.php" method="POST">
                   <span><?php echo $row["name"]; ?></span>
                   <h4><?php echo $row["price"]; ?>/kg</h4>
                   <input type="number" name="" id="" min="1" max="100" value="1" style="width: 10rem;">
                   <span style="color: black; font-style: bold; font-weight: 700;">/kg</span>
-
-                  <button onclick="add_to_cart('<?php echo $row['name']; ?>','<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']; ?>','<?php echo $row['price']; ?>')" class="ms-3" >
-                  <img src="./images/cart.svg" alt="">
-                  </button>
-
+                  <button type="submit" name="add_to_cart" class="btn btn-primary">Add to Cart</button>
+                  <input type="hidden" name="item_name" value="<?php echo $row["name"]; ?>">
+                  <input type="hidden" name="price" value="<?php echo $row["price"]; ?>">
+                  </form>
               </div>
              
           </div>
@@ -185,7 +120,6 @@ if(mysqli_num_rows($result) == 0){
           ?>
 
     </div>
-
 
   </section>
   <!-- contactus -->
@@ -217,7 +151,7 @@ if(mysqli_num_rows($result) == 0){
     </div>
   </section>
   <!-- About us -->
-  <div class="pt-0">
+  <div class="pt-0" id="about">
       <h2 class="text-center text-success">About Us</h2>
     </div>
    <div class="section">
@@ -338,7 +272,6 @@ if(mysqli_num_rows($result) == 0){
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="js/cartjs.js"></script>
   <!-- <script src="js/script.js"></script> -->
   
 
