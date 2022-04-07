@@ -9,7 +9,9 @@ if(isset($_POST["submit"])){
         if($password == $row["password"]){
             $_SESSION["login"] = true;
             $_SESSION["id"] = $row["id"];
+            $_SESSION["name"] = $row["name"];
             header("Location: index.php");
+            
         }
         else{
             echo
@@ -24,7 +26,7 @@ if(isset($_POST["submit"])){
 }
 ?>
 
-
+  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +52,7 @@ if(isset($_POST["submit"])){
                     <div class="card-body p-md-5 mx-md-4">
       
                       <div class="text-center">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
+                        <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo"> -->
                         <h4 class="mt-1 mb-5 pb-1">We are The GroceryHub Team</h4>
                       </div>
       
@@ -63,13 +65,13 @@ if(isset($_POST["submit"])){
                         </div>
       
                         <div class="form-outline mb-4">
-                          <input type="password" name="password" id="password" required value="" class="form-control" placeholder="password" />
+                          <input type="password" name="password" id="password" required value="" class="form-control" placeholder="password"  />
                           <label class="form-label" for="form2Example22">Password</label>
                         </div>
       
                         <div class="text-center pt-1 mb-5 pb-1 butt">
                           <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="submit">Log in</button>
-                          <a class="text-muted" href="#!">Forgot password?</a>
+                          <a class="text-muted" href="#!"></a>
                         </div>
       
                         <div class="d-flex align-items-center justify-content-center pb-4">

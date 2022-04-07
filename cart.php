@@ -22,73 +22,7 @@ require('functions.inc.php');
 <?php 
 // include("header.php"); 
 ?>
-<!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color:#44ee4d;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.php">GroceryHub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="index.php#contact">Contact Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.php#about">About Us</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Category
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?php
-						foreach($cat_arr as $list){
-                            ?>
-				<li><a href="product.php?id=<?php echo $list['id']?>"><?php echo $list['categories']?></a></li>
-				<?php
-				}
-				?>
-            </ul>
-          </li>
-          <?php
-            if(!isset($_SESSION['id'])){
-              echo '<li class="nav-item">
-              <a class="nav-link active" href="login.php">Login</a>
-              </li>';
-            }else{
-              echo '<li class="nav-item">
-              <a class="nav-link active" href="logout.php">Logout</a>
-              </li>';
-            }
-         ?>
-          <li class="nav-item">
-            <?php
-              $count = 0;
-              if(isset($_SESSION['cart']))
-              {
-                $count = count($_SESSION['cart']);
-              }
-            ?>
-            <a class="nav-link active" href="cart.php">My Cart (<?php echo $count;?>)</a>
-          </li>
-
-          
-        </ul>
-        
-
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav> -->
-  <nav class="navbar navbar-expand-lg" style="background-color:#44ee4d;>
+  <nav class="navbar navbar-expand-lg" style="background-color:#44ee4d;">
   <div class="container-md">
     <a class="navbar-brand text-dark" href="index.php">Grocery Hub - Cart</a>
   </div>
@@ -147,22 +81,46 @@ require('functions.inc.php');
         <h4>Grand Total :</h4>
         <h4 class="text-center" id="gtotal"></h4>
         <br>
-        <form action="">
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-        <label class="form-check-label" for="flexRadioDefault1">
-        Cash on Delivery
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-        <label class="form-check-label" for="flexRadioDefault2">
-        Online
-        </label>
-    </div>
-    <br>
-            <button class="btn btn-primary btn-block">Check Out</button>
+        <?php 
+            if(isset($_SESSION['cart']) && count($_SESSION['cart'])>0)    
+            {
+
+        ?>
+        <form action="purchace.php" method="POST">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" name="full_name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="number" name="phone_no" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>Address</label>
+            <input type="text" name="address" class="form-control" required>
+          </div>
+          <input type='hidden' name='item_name' value='$value[item_name]'>
+          <input type='hidden' class='iprice' value='$value[price]'>
+          <input type='hidden' class='' value='$value[quantity]'>
+          <div class="form-check">
+              <input class="form-check-input" type="radio" name="pay_mode" value="COD" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+              Cash on Delivery
+              </label>
+          </div>
+          <!-- <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+              Online 
+              </label>
+          </div> -->
+          <br>
+          <button class="btn btn-success btn-block" name="purchase"> Make Payment </button>
         </form>
+
+        <?php
+          } 
+        ?>
     </div>
 </div>
         </div>
@@ -199,7 +157,7 @@ require('functions.inc.php');
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" ></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="js/cartjs.js"></script>
-  <script src="js/script.js"></script>
+  <!-- <script src="js/cartjs.js"></script>
+  <script src="js/script.js"></script> -->
 </body>
 </html>

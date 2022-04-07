@@ -306,3 +306,15 @@ svg{
     letter-spacing: 1.5px;
 
 }
+.content .article h3{
+    color: #111;
+    font-size: 17px;
+    line-height: 1.5;
+
+}
+.content .article p{
+    margin-top: 20px;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #333;
+}

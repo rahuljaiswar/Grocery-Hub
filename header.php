@@ -66,6 +66,12 @@
               </li>';
             }
          ?>
+         <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><?php 
+                if (isset($_SESSION["name"])){
+                  echo $_SESSION["name"];
+                }?></a>
+         </li>
           <li class="nav-item">
             <?php
               $count = 0;
@@ -76,7 +82,7 @@
             ?>
             <a class="nav-link active" href="cart.php">My Cart (<?php echo $count;?>)</a>
           </li>
-
+         
           
         </ul>
         

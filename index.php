@@ -16,6 +16,7 @@ if(mysqli_num_rows($result) == 0){
     header("Location: index.php");
 }
 
+
 ?>
 <div class="body__overlay"></div>
 
@@ -44,23 +45,23 @@ if(mysqli_num_rows($result) == 0){
   <!-- <marquee behavior="alternate" direction="left">GroceryHub GroceryHub GroceryHub GroceryHub GroceryHub GroceryHub
   </marquee> -->
   <!-- carousel starts here -->
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
-    <div class="carousel-indicators">
+  <!-- <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
+    <div class="carousel-indicators"> -->
       <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button> -->
       <!-- <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
         aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
         aria-label="Slide 3"></button> -->
-    </div>
+    <!-- </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="images/grocery.png" class="d-block w-100" alt="...">
+        <img src="images/grocery.png" class="d-block w-100" alt="..."> -->
         <!-- <div class="carousel-caption d-none d-md-block">
           <h5>First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
         </div> -->
-      </div>
+      <!-- </div> -->
       <!-- <div class="carousel-item">
         <img src="images/1.png" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
@@ -84,11 +85,11 @@ if(mysqli_num_rows($result) == 0){
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button> -->
-  </div>
+  <!-- </div> -->
   <!-- carousel ends here -->
-  <!-- <div class="container-fluid">
+  <div class="container-fluid">
     <img src="images/grocery.png" alt="" style="width: 100%; height:80%; padding: 75px 25px; border-radius:10px" > 
-  </div> -->
+  </div>
       
 <!-- feature products start -->
   <section id="product1" class="section-p1">
@@ -105,8 +106,8 @@ if(mysqli_num_rows($result) == 0){
               <form action="manage_cart.php" method="POST">
                   <span><?php echo $row["name"]; ?></span>
                   <h4><?php echo $row["price"]; ?>/kg</h4>
-                  <input type="number" name="" id="" min="1" max="100" value="1" style="width: 10rem;">
-                  <span style="color: black; font-style: bold; font-weight: 700;">/kg</span>
+                  <!-- <input type="number" name="" id="" min="1" max="100" value="1" style="width: 10rem;">
+                  <span style="color: black; font-style: bold; font-weight: 700;">/kg</span> -->
                   <button type="submit" name="add_to_cart" class="btn btn-primary">Add to Cart</button>
                   <input type="hidden" name="item_name" value="<?php echo $row["name"]; ?>">
                   <input type="hidden" name="price" value="<?php echo $row["price"]; ?>">
@@ -158,8 +159,10 @@ if(mysqli_num_rows($result) == 0){
     <div class="container">
       <div class="content">
         <div class="article">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus, tempore corporis, ex reprehenderit beatae iusto illo facilis dolore eligendi obcaecati quo! Illum hic, aspernatur vel tempore praesentium deserunt doloribus ducimus?
+          <h3>
+          Welcome to GroceryHub, your number one source for all groceries. We're dedicated to providing you the very best of grocery, with an emphasis on fresh grocery, less price, and on time delivery.</h3>
+          <p>We want our customers to focus on the more important things for themselves and not need to plan for the little things that life needs on an everyday basis. We are here to get your chores out of your way.
+          We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us.
             </p>
           <div class="button">
             <a href="#">Read More</a>
@@ -167,7 +170,7 @@ if(mysqli_num_rows($result) == 0){
         </div>
       </div>
       <div class="image-section">
-        <img src="images/gban.png" alt="">
+        <img src="images/1.jpg" alt="">
       </div>
     </div>
     </div>
@@ -186,9 +189,7 @@ if(mysqli_num_rows($result) == 0){
                 GroceryHub
               </h6>
                 <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit.
+                Welcome to GroceryHub, your number one source for all groceries. We're dedicated to providing you the very best of grocery, with an emphasis on fresh grocery, less price, and on time delivery.
               </p>
             </div>
             <!-- Grid column -->
@@ -207,6 +208,7 @@ if(mysqli_num_rows($result) == 0){
               <p>
                 <a class="text-white" href="#">Categories</a>
               </p>
+              
 
             </div>
             <!-- Grid column -->
@@ -220,7 +222,7 @@ if(mysqli_num_rows($result) == 0){
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
               <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
               <p><i class="fas fa-home mr-3"></i> India</p>
-              <p><i class="fas fa-envelope mr-3"></i> abc@gmail.com</p>
+              <p><i class="fas fa-envelope mr-3"></i> groceryhub@gmail.com</p>
               <p><i class="fas fa-phone mr-3"></i> +91 0000000000</p>
               <p><i class="fas fa-print mr-3"></i> +91 0000000000</p>
             </div>

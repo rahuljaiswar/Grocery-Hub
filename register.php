@@ -1,11 +1,11 @@
 <?php 
 require'connection.inc.php';
 if(isset($_POST["submit"])){
-    $name=$_POST["name"];
-    $username=$_POST["username"];
-    $email=$_POST["email"];
-    $password=$_POST["password"];
-    $confirmpassword=$_POST["confirmpassword"];
+    $name = $_POST["name"];
+    $username = $_POST["username"];
+    $email = $_POST["email"];
+    $password = $_POST["password"]; 
+    $confirmpassword =$_POST["confirmpassword"];
     $duplicate = mysqli_query($con, "SELECT * FROM users WHERE username='$username' OR email='$email'");
     if(mysqli_num_rows($duplicate) > 0){
         echo 
@@ -38,7 +38,7 @@ if(isset($_POST["submit"])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
     <link rel="stylesheet" href="stylesheet.css">
     
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -56,11 +56,11 @@ if(isset($_POST["submit"])){
                     <div class="card-body p-md-5 mx-md-4">
       
                       <div class="text-center">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
+                        <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo"> -->
                         <h4 class="mt-1 mb-5 pb-1">We are The GroceryHub Team</h4>
                       </div>
       
-                      <form class="" action="" method="post" autocomplete="off">
+                      <form class="" action="" method="post" autocomplete="off" onsubmit="return checkPass()">
                         <p>Please fill this form</p>
       
                         <div class="form-outline mb-4">
@@ -85,7 +85,7 @@ if(isset($_POST["submit"])){
 
                         <div class="form-outline mb-4">
                           <label class="form-label" for="confirmpassword">Confirm Password</label>
-                          <input type="password" name="confirmpassword" id="confirmpassword" required value="" class="form-control" placeholder="Confirm Password" />
+                          <input type="password" name="confirmpassword" id="confirmpassword" required value="" class="form-control" placeholder="Confirm Password"  />
                         </div>
       
                         <div class="text-center pt-1 mb-5 pb-1 butt">
@@ -114,6 +114,17 @@ if(isset($_POST["submit"])){
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"></script>
       <script src="script.js"></script>
+      <script>
+        function checkPass()
+        {
+          var pass1 = document.getElementById('password');
+          if(pass1.value.length > 8)
+          {
+            alert("length exceeded than 8 character");
+            return false;
+          }
+        }
+      </script>
           
 </body>
 

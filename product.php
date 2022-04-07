@@ -8,7 +8,7 @@ while($row=mysqli_fetch_assoc($cat_res)){
 }
 
 
-$cat = $_GET["id"];
+$cat =strip_tags ($_GET["id"]);
 $result = mysqli_query($con, "SELECT * FROM product WHERE categories_id='".$cat."'");
 // $row = mysqli_fetch_assoc($result);
 if(mysqli_num_rows($result) == 0){
@@ -70,8 +70,8 @@ if(mysqli_num_rows($result) == 0){
                 <div class="des">
                     <span><?php echo $row["name"]; ?></span>
                     <h4><?php echo $row["price"]; ?>/kg</h4>
-                    <input type="number" name="" id="" min="1" max="100" value="1" style="width: 10rem;">
-                    <span style="color: black; font-style: bold; font-weight: 700;">/kg</span>
+                    <!-- <input type="number" name="" id="" min="1" max="100" value="1" style="width: 10rem;">
+                    <span style="color: black; font-style: bold; font-weight: 700;">/kg</span> -->
                     <button type="submit" name="add_to_cart" class="btn btn-primary">Add to Cart</button>
                     <input type="hidden" name="item_name" value="<?php echo $row["name"]; ?>">
                     <input type="hidden" name="price" value="<?php echo $row["price"]; ?>">
