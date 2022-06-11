@@ -82,7 +82,7 @@ require('functions.inc.php');
         <h4 class="text-center" id="gtotal"></h4>
         <br>
         <?php 
-            if(isset($_SESSION['cart']) && count($_SESSION['cart'])>0)    
+            if(isset($_SESSION['login']) && count($_SESSION['cart'])>0)    
             {
 
         ?>

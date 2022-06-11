@@ -34,6 +34,7 @@ if(mysqli_num_rows($result) == 0){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="cartstyle.css">
   <script text="text/javascript" src="js/jquery-3.6.0.js"></script>
+  <link rel="icon" type="image/x-icon" href="/images/1.jpg">
 
 
   <title>Grocery Hub</title>
@@ -279,7 +280,7 @@ if(mysqli_num_rows($result) == 0){
 
 <script type="text/javascript">
   function send_message(){
-    var name=$("name").val);
+    var name=$("name").val();
     var email=$("email").val();
     var mobile=$("mobile").val();
     var message=$("message").val();

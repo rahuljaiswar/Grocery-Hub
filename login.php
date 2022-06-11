@@ -1,8 +1,9 @@
 <?php 
 require('connection.inc.php');
+require('functions.inc.php');
 if(isset($_POST["submit"])){
-    $usernameemail=$_POST["usernameemail"];
-    $password=$_POST["password"];
+    $usernameemail=get_safe_value($con,$_POST["usernameemail"]);
+    $password=get_safe_value($con,$_POST["password"]);
     $result = mysqli_query($con, "SELECT * FROM users WHERE username='$usernameemail' OR email='$usernameemail'");
     $row = mysqli_fetch_assoc($result);
     if(mysqli_num_rows($result) > 0){
